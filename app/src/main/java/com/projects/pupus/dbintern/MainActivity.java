@@ -37,5 +37,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        Button hilfe = (Button) findViewById(R.id.hilfe);
+        hilfe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                alertDialog.setTitle("Hilfe");
+                alertDialog.setMessage("Zum Login nutzen Sie bitte die selben Benutzderdaten, die Sie auch im Reisemarkt oder im Auslastungsradar nutzen.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ok.",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+        });
     }
 }
