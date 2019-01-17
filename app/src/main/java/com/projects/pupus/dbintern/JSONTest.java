@@ -26,9 +26,9 @@ public class JSONTest extends AppCompatActivity{
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.sperrliste);
 
-            contactList = new ArrayList<>();
+            ortList = new ArrayList<>();
             lv = (ListView) findViewById(R.id.list);
 
             new GetContacts().execute();
