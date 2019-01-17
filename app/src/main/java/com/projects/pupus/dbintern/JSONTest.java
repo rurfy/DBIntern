@@ -21,7 +21,18 @@ public class JSONTest extends AppCompatActivity{
         private String TAG = JSONTest.class.getSimpleName();
         private ListView lv;
 
-        ArrayList<HashMap<String, String>> contactList;
+        ArrayList<HashMap<String, String>> ortList;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            contactList = new ArrayList<>();
+            lv = (ListView) findViewById(R.id.list);
+
+            new GetContacts().execute();
+        }
 
         private class GetContacts extends AsyncTask<Void, Void, Void> {
             @Override
@@ -35,7 +46,7 @@ public class JSONTest extends AppCompatActivity{
             protected Void doInBackground(Void... arg0) {
                 HttpHandler sh = new HttpHandler();
                 // Making a request to url and getting response
-                String url = "http://dbintern.appshost.net/api.php?pass=db";
+                String url = "http://dbintern.appshost.net/api.php?pass=db&db=casino_ort";
                 String jsonStr = sh.makeServiceCall(url);
 
                 Log.e(TAG, "Response from url: " + jsonStr);
@@ -43,35 +54,24 @@ public class JSONTest extends AppCompatActivity{
                     try {
                         JSONObject jsonObj = new JSONObject(jsonStr);
 
-                        // Getting JSON Array node
-                        JSONArray contacts = jsonObj.getJSONArray("contacts");
+                        // JSONArray is created
+                        JSONArray jsonOrte = jsonObj.getJSONArray("casino_orte");
 
-                        // looping through All Contacts
-                        for (int i = 0; i < contacts.length(); i++) {
-                            JSONObject c = contacts.getJSONObject(i);
+                        // looping through all values
+                        for (int i = 0; i < jsonOrte.length(); i++) {
+                            JSONObject c = jsonOrte.getJSONObject(i);
                             String id = c.getString("id");
                             String name = c.getString("name");
-                            String email = c.getString("email");
-                            String address = c.getString("address");
-                            String gender = c.getString("gender");
 
-                            // Phone node is JSON Object
-                            JSONObject phone = c.getJSONObject("phone");
-                            String mobile = phone.getString("mobile");
-                            String home = phone.getString("home");
-                            String office = phone.getString("office");
-
-                            // tmp hash map for single contact
-                            HashMap<String, String> contact = new HashMap<>();
+                            // tmp hash map for single object
+                            HashMap<String, String> ort = new HashMap<>();
 
                             // adding each child node to HashMap key => value
-                            contact.put("id", id);
-                            contact.put("name", name);
-                            contact.put("email", email);
-                            contact.put("mobile", mobile);
+                            ort.put("id", id);
+                            ort.put("name", name);
 
-                            // adding contact to contact list
-                            contactList.add(contact);
+                            // adding object to arrayList
+                            ortList.add(ort);
                         }
                     } catch (final JSONException e) {
                         Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -104,7 +104,7 @@ public class JSONTest extends AppCompatActivity{
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
-                ListAdapter adapter = new SimpleAdapter(JSONTest.this, contactList,
+                ListAdapter adapter = new SimpleAdapter(JSONTest.this, ortList,
                         R.layout.list_item, new String[]{ "email","mobile"},
                         new int[]{R.id.email, R.id.mobile});
                 lv.setAdapter(adapter);
