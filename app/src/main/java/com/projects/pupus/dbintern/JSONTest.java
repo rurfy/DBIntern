@@ -50,25 +50,28 @@ public class JSONTest extends AppCompatActivity{
                 String jsonStr = sh.makeServiceCall(url);
 
                 Log.e(TAG, "Response from url: " + jsonStr);
+                //Log.e(TAG, jsonStr);
                 if (jsonStr != null) {
                     try {
-                        JSONObject jsonObj = new JSONObject(jsonStr);
+                        //JSONObject jsonObj = new JSONObject(jsonStr);
 
                         // JSONArray is created
-                        JSONArray jsonOrte = jsonObj.getJSONArray("casino_orte");
+                        JSONArray jsonOrte = new JSONArray(jsonStr);
+                        //JSONArray jsonOrte = jsonObj.getJSONArray("casino_orte");
 
                         // looping through all values
                         for (int i = 0; i < jsonOrte.length(); i++) {
                             JSONObject c = jsonOrte.getJSONObject(i);
-                            String id = c.getString("id");
-                            String name = c.getString("name");
+                            String id = c.getString("Ort");
+                            String name = c.getString("Ort_ID");
+                            Log.e(TAG, id + name);
 
                             // tmp hash map for single object
                             HashMap<String, String> ort = new HashMap<>();
 
                             // adding each child node to HashMap key => value
-                            ort.put("id", id);
-                            ort.put("name", name);
+                            ort.put("Ort", id);
+                            ort.put("Ort_ID", name);
 
                             // adding object to arrayList
                             ortList.add(ort);
@@ -105,7 +108,7 @@ public class JSONTest extends AppCompatActivity{
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
                 ListAdapter adapter = new SimpleAdapter(JSONTest.this, ortList,
-                        R.layout.list_item, new String[]{ "email","mobile"},
+                        R.layout.list_item, new String[]{ "Ort","Ort_ID"},
                         new int[]{R.id.email, R.id.mobile});
                 lv.setAdapter(adapter);
             }
