@@ -16,11 +16,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sperrliste"
+        android:id="@+id/titel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Sperrliste"
+        android:text="test"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/header"
@@ -28,7 +28,7 @@
         app:layout_constraintRight_toRightOf="@+id/header" />
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/listview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,8 +44,8 @@
         android:text="Hauptmenü"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/sperrliste"
+        app:layout_constraintBottom_toBottomOf="@+id/titel"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sperrliste" />
+        app:layout_constraintTop_toTopOf="@+id/titel" />
 
 </android.support.constraint.ConstraintLayout>

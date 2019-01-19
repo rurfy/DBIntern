@@ -17,13 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JSONTest">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Hauptmenue"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Sperrliste"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Casino"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Rabatt"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
