@@ -2,6 +2,7 @@ package com.projects.pupus.dbintern;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(benutzer.getText().toString().equals("db") && passwort.getText().toString().equals("exklusiv")){
-                    System.out.println("korrekt");
+                    Intent intent = new Intent(MainActivity.this, Hauptmenue.class);
+                    startActivity(intent);
                 } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                     alertDialog.setTitle("Login fehlgeschlagen!");
