@@ -38,7 +38,7 @@
         app:layout_constraintRight_toRightOf="@+id/header" />
 
     <TextView
-        android:id="@+id/sperrliste"
+        android:id="@+id/entwicklerhg"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
     <TextView
-        android:id="@+id/casinos"
+        android:id="@+id/kontakthg"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
@@ -65,10 +65,10 @@
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sperrliste" />
+        app:layout_constraintTop_toBottomOf="@+id/entwicklerhg" />
 
     <TextView
-        android:id="@+id/rabatte"
+        android:id="@+id/versionhg"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
@@ -80,10 +80,10 @@
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/casinos" />
+        app:layout_constraintTop_toBottomOf="@+id/kontakthg" />
 
     <TextView
-        android:id="@+id/reisemarkt"
+        android:id="@+id/anmerkungenhg"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
@@ -95,7 +95,7 @@
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rabatte" />
+        app:layout_constraintTop_toBottomOf="@+id/versionhg" />
 
     <TextView
         android:id="@+id/planet"
@@ -110,7 +110,7 @@
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reisemarkt" />
+        app:layout_constraintTop_toBottomOf="@+id/anmerkungenhg" />
 
     <TextView
         android:id="@+id/ueber"
