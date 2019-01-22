@@ -27,6 +27,10 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Ueber"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".Changelog"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Anmerkung"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
