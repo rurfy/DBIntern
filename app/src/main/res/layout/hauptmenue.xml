@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/file" />
+
     <TextView
         android:id="@+id/header"
         android:layout_width="0dp"
@@ -27,17 +38,93 @@
         app:layout_constraintRight_toRightOf="@+id/header" />
 
     <TextView
-        android:id="@+id/sperrliste"
+        android:id="@+id/entwicklerhg"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="10dp"
-        android:background="@color/colorDeutscheBahn"
+        android:background="@color/colorDeutscheBahnAlpha"
         android:gravity="center"
         android:text="Sperrliste"
-        android:textColor="#0000FF"
+        android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <TextView
+        android:id="@+id/kontakthg"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorDeutscheBahnAlpha"
+        android:gravity="center"
+        android:text="Casinos"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entwicklerhg" />
+
+    <TextView
+        android:id="@+id/versionhg"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorDeutscheBahnAlpha"
+        android:gravity="center"
+        android:text="Rabatte"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kontakthg" />
+
+    <TextView
+        android:id="@+id/anmerkungenhg"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorDeutscheBahnAlpha"
+        android:gravity="center"
+        android:text="Reisemarkt"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/versionhg" />
+
+    <TextView
+        android:id="@+id/planet"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorDeutscheBahnAlpha"
+        android:gravity="center"
+        android:text="Planet"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anmerkungenhg" />
+
+    <TextView
+        android:id="@+id/ueber"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorDeutscheBahnAlpha"
+        android:gravity="center"
+        android:text="Über"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet" />
+
 </android.support.constraint.ConstraintLayout>
