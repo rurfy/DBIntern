@@ -13,7 +13,7 @@ public class Ueber extends AppCompatActivity {
         setContentView(R.layout.ueber);
 
         Button zurueck = (Button) findViewById(R.id.zurueck);
-        
+
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

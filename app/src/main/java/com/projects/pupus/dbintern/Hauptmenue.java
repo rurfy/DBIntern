@@ -58,13 +58,15 @@ public class Hauptmenue extends AppCompatActivity {
         reisemarkt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("www.db-reisemarkt.de/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.db-reisemarkt.de/service/security/reisemarkt/2344194"));
+                startActivity(intent);
             }
         });
         ueber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Hauptmenue.this, Ueber.class);
+                startActivity(intent);
             }
         });
     }
