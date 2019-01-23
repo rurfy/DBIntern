@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sperrliste"
+        android:id="@+id/entwicklerhg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -44,8 +44,8 @@
         android:text="Hauptmenü"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/sperrliste"
+        app:layout_constraintBottom_toBottomOf="@+id/entwicklerhg"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sperrliste" />
+        app:layout_constraintTop_toTopOf="@+id/entwicklerhg" />
 
 </android.support.constraint.ConstraintLayout>

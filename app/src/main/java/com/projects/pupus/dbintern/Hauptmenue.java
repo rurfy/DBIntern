@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class Hauptmenue extends AppCompatActivity {
@@ -15,12 +14,12 @@ public class Hauptmenue extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hauptmenue);
 
-        TextView sperrliste = (TextView) findViewById(R.id.sperrliste);
-        TextView casinos = (TextView) findViewById(R.id.casinos);
-        TextView rabatte = (TextView) findViewById(R.id.rabatte);
-        TextView reisemarkt = (TextView) findViewById(R.id.reisemarkt);
+        TextView sperrliste = (TextView) findViewById(R.id.entwicklerhg);
+        TextView casinos = (TextView) findViewById(R.id.kontakthg);
+        TextView rabatte = (TextView) findViewById(R.id.versionhg);
+        TextView reisemarkt = (TextView) findViewById(R.id.anmerkungenhg);
         TextView planet = (TextView) findViewById(R.id.planet);
-        TextView ueber = (TextView) findViewById(R.id.ueber);
+        final TextView ueber = (TextView) findViewById(R.id.ueber);
 
         sperrliste.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +58,15 @@ public class Hauptmenue extends AppCompatActivity {
         reisemarkt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("www.db-reisemarkt.de/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.db-reisemarkt.de/service/security/reisemarkt/2344194"));
+                startActivity(intent);
+            }
+        });
+        ueber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Hauptmenue.this, Ueber.class);
+                startActivity(intent);
             }
         });
     }
