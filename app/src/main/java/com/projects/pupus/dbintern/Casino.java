@@ -22,7 +22,7 @@ public class Casino extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sperrliste);
+        setContentView(R.layout.casrab);
 
         Bundle b = getIntent().getExtras();
         String name = b.getString("titel");
