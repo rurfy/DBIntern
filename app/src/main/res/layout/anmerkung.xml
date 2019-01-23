@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/hintergrund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/file" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/colorDeutscheBahn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/zurueck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="10dp"
+        android:text="Über diese App"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/anmerkunghg"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorDeutscheBahnAlpha"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <TextView
+        android:id="@+id/copyrighthg"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorDeutscheBahnAlpha"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anmerkunghg" />
+
+    <TextView
+        android:id="@+id/anmerkung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Anmerkung"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/anmerkunghg"
+        app:layout_constraintLeft_toLeftOf="@+id/anmerkunghg"
+        app:layout_constraintTop_toTopOf="@+id/anmerkunghg" />
+
+    <TextView
+        android:id="@+id/copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Copyrights"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/copyrighthg"
+        app:layout_constraintLeft_toLeftOf="@+id/copyrighthg"
+        app:layout_constraintTop_toTopOf="@+id/copyrighthg" />
+
+    <TextView
+        android:id="@+id/anmerkungtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:gravity="right"
+        android:text="Dies ist keine offizielle Anwendung\n der Deutschen Bahn AG. Dies ist\n eine Freizeitentwicklung.\n Alle Angaben ohne Gewähr."
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/anmerkunghg"
+        app:layout_constraintRight_toRightOf="@+id/anmerkunghg"
+        app:layout_constraintTop_toTopOf="@+id/anmerkunghg"
+        app:layout_constraintVertical_bias="0.622" />
+
+    <TextView
+        android:id="@+id/copyrighttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:text="Hintergrundbild: fotolia: den-belitsky"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/copyrighthg"
+        app:layout_constraintRight_toRightOf="@+id/copyrighthg"
+        app:layout_constraintTop_toTopOf="@+id/copyrighthg" />
+
+</android.support.constraint.ConstraintLayout>
