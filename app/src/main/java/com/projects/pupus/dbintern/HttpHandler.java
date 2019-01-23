@@ -35,6 +35,7 @@ public class HttpHandler {
         } catch (IOException e) {
             Log.e(TAG, "IOException: " + e.getMessage());
         } catch (Exception e) {
+            e.printStackTrace();
             Log.e(TAG, "Exception: " + e.getMessage());
         }
         return response;
