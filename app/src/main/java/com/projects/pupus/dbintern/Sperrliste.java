@@ -72,6 +72,7 @@ public class Sperrliste extends AppCompatActivity{
                         JSONObject c = jsonOrte.getJSONObject(i);
                         String id = c.getString("ID");
                         String typ = c.getString("Typ");
+                        String nummer = c.getString("Nummer");
                         String von = c.getString("Von");
                         String bis = c.getString("Bis");
                         String gueltig = c.getString("Gueltig");
@@ -80,7 +81,7 @@ public class Sperrliste extends AppCompatActivity{
                         HashMap<String, String> ort = new HashMap<>();
 
                         // adding each child node to HashMap key => value
-                        ort.put("Zug", typ + " " + id);
+                        ort.put("Zug", typ + " " + nummer);
                         ort.put("Strecke", von + " >> " + bis);
                         ort.put("Tage", gueltig);
 
