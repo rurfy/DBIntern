@@ -57,32 +57,32 @@ public class Sperrliste extends AppCompatActivity{
         protected Void doInBackground(Void... arg0) {
             HttpHandler sh = new HttpHandler();
             // Making a request to url and getting response
-            String url = "http://dbintern.appshost.net/api.php?pass=db&db=casino_ort";
+            String url = "http://dbintern.appshost.net/api.php?pass=db&db=sperrliste";
             String jsonStr = sh.makeServiceCall(url);
 
             Log.e(TAG, "Response from url: " + jsonStr);
             //Log.e(TAG, jsonStr);
             if (jsonStr != null) {
                 try {
-                    //JSONObject jsonObj = new JSONObject(jsonStr);
-
                     // JSONArray is created
                     JSONArray jsonOrte = new JSONArray(jsonStr);
-                    //JSONArray jsonOrte = jsonObj.getJSONArray("casino_orte");
 
                     // looping through all values
                     for (int i = 0; i < jsonOrte.length(); i++) {
                         JSONObject c = jsonOrte.getJSONObject(i);
-                        String id = c.getString("Ort");
-                        String name = c.getString("Ort_ID");
-                        Log.e(TAG, id + name);
+                        String id = c.getString("ID");
+                        String typ = c.getString("Typ");
+                        String von = c.getString("Von");
+                        String bis = c.getString("Bis");
+                        String gueltig = c.getString("Gueltig");
 
                         // tmp hash map for single object
                         HashMap<String, String> ort = new HashMap<>();
 
                         // adding each child node to HashMap key => value
-                        ort.put("Ort", id);
-                        ort.put("Ort_ID", name);
+                        ort.put("Zug", typ + " " + id);
+                        ort.put("Strecke", von + " >> " + bis);
+                        ort.put("Tage", gueltig);
 
                         // adding object to arrayList
                         ortList.add(ort);
@@ -119,8 +119,8 @@ public class Sperrliste extends AppCompatActivity{
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             ListAdapter adapter = new SimpleAdapter(Sperrliste.this, ortList,
-                    R.layout.list_item, new String[]{ "Ort","Ort_ID"},
-                    new int[]{R.id.email, R.id.mobile});
+                    R.layout.sperr_list_item, new String[]{ "Zug","Strecke","Tage"},
+                    new int[]{R.id.tV_Zug, R.id.tV_Strecke, R.id.tV_Tage});
             lv.setAdapter(adapter);
         }
     }
