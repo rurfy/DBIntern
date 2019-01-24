@@ -2,17 +2,17 @@
 
 ToDOs:
 
-- Autodrehen verhindern
+- Autodrehen verhindern         -> Lucas
 - Optische Anpassungen
     - Hauptmenü Buttons ändern
     - Schriftgröße abändern
-    - Zurückpfeil bei ZurückButton
+    - Zurückpfeil bei ZurückButton      -> Chrissy
     - Hintergrundbilder an verschiedene Auflösungen anpassen
     - Changelog-Icon abrunden
 - Icon erstellen
-- Casino und Unterseiten
+- Casino und Unterseiten        -> Lucas
 - Rabatte und Unterseiten
-- Changelog
+- Changelog         -> Chrissy
 - (JSONParser)
 - (Errorcatches)
 - Notchbalken rot
