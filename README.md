@@ -16,3 +16,4 @@ ToDOs:
 - (JSONParser)      -> Chrissy  -> erledigt (muss noch auf alle angewendet werden)
 - (Errorcatches)
 - Notchbalken rot
+- (xml-Rahmen Pattern erstellen)
