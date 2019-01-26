@@ -20,7 +20,7 @@ import java.util.HashMap;
 
 public class Changelog extends AppCompatActivity {
 
-    private String TAG = JSONTest.class.getSimpleName();
+    private String TAG = Changelog.class.getSimpleName();
     private ListView lvChangelog;
 
     ArrayList<HashMap<String, String>> ortList;
@@ -42,82 +42,23 @@ public class Changelog extends AppCompatActivity {
             }
         });
 
-        new GetContacts().execute();
-    }
-
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Toast.makeText(Changelog.this,"Json Data is downloading",Toast.LENGTH_LONG).show();
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-            // Making a request to url and getting response
-            String url = "http://dbintern.appshost.net/api.php?pass=db&db=Changelog";
-            String jsonStr = sh.makeServiceCall(url);
-
-            Log.e(TAG, "Response from url: " + jsonStr);
-            //Log.e(TAG, jsonStr);
-            if (jsonStr != null) {
-                try {
-                    // JSONArray is created
-                    JSONArray jsonOrte = new JSONArray(jsonStr);
-
-                    // looping through all values
-                    for (int i = 0; i < jsonOrte.length(); i++) {
-                        JSONObject c = jsonOrte.getJSONObject(i);
-                        String version = c.getString("Version");
-                        String text = c.getString("ChangeText");
-
-                        // tmp hash map for single object
-                        HashMap<String, String> ort = new HashMap<>();
-
-                        // adding each child node to HashMap key => value
-                        ort.put("Version", "Version: " + version);
-                        ort.put("Text", text);
-
-                        // adding object to arrayList
-                        ortList.add(ort);
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    "Json parsing error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
-
-                }
-
-            } else {
-                Log.e(TAG, "Couldn't get json from server.");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(Changelog.this, TAG, ortList, new String[] {"Version", "ChangeText"}, new String[] {"Version", "Text"},  "http://dbintern.appshost.net/api.php?pass=db&db=Changelog") {
+            @Override
+            protected void onPostExecute(Void result) {
+                super.onPostExecute(result);
+                ListAdapter adapter = new SimpleAdapter(Changelog.this, ortList,
+                        R.layout.change_list_item, new String[]{ "Version","Text"},
+                        new int[]{R.id.tV_Version, R.id.tV_Text});
+                lvChangelog.setAdapter(adapter);
             }
 
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            ListAdapter adapter = new SimpleAdapter(Changelog.this, ortList,
-                    R.layout.change_list_item, new String[]{ "Version","Text"},
-                    new int[]{R.id.tV_Version, R.id.tV_Text});
-            lvChangelog.setAdapter(adapter);
-        }
+            @Override
+            protected void putAll(HashMap<String, String> map, String[] listTags, String[] content) {
+                map.put(listTags[0], "Version: " + content[0]);
+                map.put(listTags[1], content[1]);
+            }
+        };
+        getContacts.execute();
     }
+
 }

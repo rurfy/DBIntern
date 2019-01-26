@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GetContacts extends AsyncTask<Void, Void, Void> {
+public class JSONParser extends AsyncTask<Void, Void, Void> {
 
     private Context context;
     private String TAG;
@@ -21,12 +21,12 @@ public class GetContacts extends AsyncTask<Void, Void, Void> {
     private String[] tagList;
     private String url;
 
-    public GetContacts(Context context, String TAG, ArrayList<HashMap<String, String>> ortList, String[] tags, String[] tagList, String url) {
+    public JSONParser(Context context, String TAG, ArrayList<HashMap<String, String>> ortList, String[] namesOnWebsite, String[] tagsOnList, String url) {
         this.context = context;
         this.TAG = TAG;
         this.ortList = ortList;
-        this.tags = tags;
-        this.tagList = tagList;
+        this.tags = namesOnWebsite;
+        this.tagList = tagsOnList;
         this.url = url;
     }
 
@@ -93,10 +93,6 @@ public class GetContacts extends AsyncTask<Void, Void, Void> {
         }
 
         return null;
-    }
-
-    protected void putInHashmap (HashMap<String, String> map, String tag, String content) {
-        map.put(tag, content);
     }
 
     protected void putAll (HashMap<String, String> map, String[] listTags, String[] content) {

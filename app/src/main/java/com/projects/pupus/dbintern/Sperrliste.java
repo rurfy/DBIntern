@@ -20,8 +20,8 @@ import java.util.HashMap;
 
 public class Sperrliste extends AppCompatActivity{
 
-    private String TAG = JSONTest.class.getSimpleName();
-    private ListView lv;
+    private String TAG = Sperrliste.class.getSimpleName();
+    private ListView lvSperrliste;
 
     ArrayList<HashMap<String, String>> ortList;
 
@@ -31,7 +31,7 @@ public class Sperrliste extends AppCompatActivity{
         setContentView(R.layout.sperrliste);
 
         ortList = new ArrayList<>();
-        lv = (ListView) findViewById(R.id.list);
+        lvSperrliste = (ListView) findViewById(R.id.list);
 
         Button zurueck = (Button) findViewById(R.id.zurueck);
 
@@ -42,21 +42,21 @@ public class Sperrliste extends AppCompatActivity{
             }
         });
 
-        GetContacts getContacts = new GetContacts(Sperrliste.this, TAG, ortList, new String[]{"ID", "Typ", "Nummer", "Von", "Bis", "Gueltig"}, new String[]{"Zug", "Strecke", "Tage"}, "http://dbintern.appshost.net/api.php?pass=db&db=sperrliste") {
+        JSONParser getContacts = new JSONParser(Sperrliste.this, TAG, ortList, new String[]{"ID", "Typ", "Nummer", "Von", "Bis", "Gueltig"}, new String[]{"Zug", "Strecke", "Tage"}, "http://dbintern.appshost.net/api.php?pass=db&db=sperrliste") {
             @Override
             protected void onPostExecute(Void Result) {
                 super.onPostExecute(Result);
                 ListAdapter adapter = new SimpleAdapter(Sperrliste.this, ortList,
                         R.layout.sperr_list_item, new String[]{ "Zug","Strecke","Tage"},
                         new int[]{R.id.tV_Zug, R.id.tV_Strecke, R.id.tV_Tage});
-                lv.setAdapter(adapter);
+                lvSperrliste.setAdapter(adapter);
             }
 
             @Override
             protected void putAll(HashMap<String, String> map, String[] listTags, String[] content) {
-                putInHashmap(map, listTags[0], content[1] + " " + content[2]);
-                putInHashmap(map, listTags[1], content[3] + " >> " + content[4]);
-                putInHashmap(map, listTags[2], content[5]);
+                map.put(listTags[0], content[1] + " " + content[2]);
+                map.put(listTags[1], content[3] + " >> " + content[4]);
+                map.put(listTags[2], content[5]);
             }
 
         };
