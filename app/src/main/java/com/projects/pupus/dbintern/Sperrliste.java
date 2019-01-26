@@ -42,88 +42,27 @@ public class Sperrliste extends AppCompatActivity{
             }
         });
 
-        new GetContacts().execute();
-    }
-
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Toast.makeText(Sperrliste.this,"Json Data is downloading",Toast.LENGTH_LONG).show();
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-            // Making a request to url and getting response
-            String url = "http://dbintern.appshost.net/api.php?pass=db&db=sperrliste";
-            String jsonStr = sh.makeServiceCall(url);
-
-            Log.e(TAG, "Response from url: " + jsonStr);
-            //Log.e(TAG, jsonStr);
-            if (jsonStr != null) {
-                try {
-                    // JSONArray is created
-                    JSONArray jsonOrte = new JSONArray(jsonStr);
-
-                    // looping through all values
-                    for (int i = 0; i < jsonOrte.length(); i++) {
-                        JSONObject c = jsonOrte.getJSONObject(i);
-                        String id = c.getString("ID");
-                        String typ = c.getString("Typ");
-                        String nummer = c.getString("Nummer");
-                        String von = c.getString("Von");
-                        String bis = c.getString("Bis");
-                        String gueltig = c.getString("Gueltig");
-
-                        // tmp hash map for single object
-                        HashMap<String, String> ort = new HashMap<>();
-
-                        // adding each child node to HashMap key => value
-                        ort.put("Zug", typ + " " + nummer);
-                        ort.put("Strecke", von + " >> " + bis);
-                        ort.put("Tage", gueltig);
-
-                        // adding object to arrayList
-                        ortList.add(ort);
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    "Json parsing error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
-
-                }
-
-            } else {
-                Log.e(TAG, "Couldn't get json from server.");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+        GetContacts getContacts = new GetContacts(Sperrliste.this, TAG, ortList, new String[]{"ID", "Typ", "Nummer", "Von", "Bis", "Gueltig"}, new String[]{"Zug", "Strecke", "Tage"}, "http://dbintern.appshost.net/api.php?pass=db&db=sperrliste") {
+            @Override
+            protected void onPostExecute(Void Result) {
+                super.onPostExecute(Result);
+                ListAdapter adapter = new SimpleAdapter(Sperrliste.this, ortList,
+                        R.layout.sperr_list_item, new String[]{ "Zug","Strecke","Tage"},
+                        new int[]{R.id.tV_Zug, R.id.tV_Strecke, R.id.tV_Tage});
+                lv.setAdapter(adapter);
             }
 
-            return null;
-        }
+            @Override
+            protected void putAll(HashMap<String, String> map, String[] listTags, String[] content) {
+                putInHashmap(map, listTags[0], content[1] + " " + content[2]);
+                putInHashmap(map, listTags[1], content[3] + " >> " + content[4]);
+                putInHashmap(map, listTags[2], content[5]);
+            }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            ListAdapter adapter = new SimpleAdapter(Sperrliste.this, ortList,
-                    R.layout.sperr_list_item, new String[]{ "Zug","Strecke","Tage"},
-                    new int[]{R.id.tV_Zug, R.id.tV_Strecke, R.id.tV_Tage});
-            lv.setAdapter(adapter);
-        }
+        };
+
+        getContacts.execute();
     }
+
 }
 
