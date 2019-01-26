@@ -12,7 +12,7 @@ ToDOs:
 - Icon erstellen
 - Casino und Unterseiten        -> Lucas
 - Rabatte und Unterseiten
-- Changelog         -> Chrissy
-- (JSONParser)
+- Changelog         -> Chrissy  -> erledigt
+- (JSONParser)      -> Chrissy  -> erledigt (muss noch auf alle angewendet werden)
 - (Errorcatches)
 - Notchbalken rot
