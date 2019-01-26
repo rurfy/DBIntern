@@ -31,12 +31,11 @@
         android:layout_height="wrap_content"
         android:background="#00000000"
         android:gravity="left|center_vertical"
-        android:paddingLeft="10dp"
         android:text="Über diese App"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/header"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/anmerkunghg"
@@ -109,5 +108,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/copyrighthg"
         app:layout_constraintRight_toRightOf="@+id/copyrighthg"
         app:layout_constraintTop_toTopOf="@+id/copyrighthg" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/zurueck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/zurueck"
+        app:srcCompat="@drawable/baseline_chevron_left_white_48dp" />
 
 </android.support.constraint.ConstraintLayout>
