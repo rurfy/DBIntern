@@ -4,12 +4,12 @@ ToDOs:
 
 - Autodrehen verhindern         -> Lucas
 - Optische Anpassungen
-    - Hauptmenü Buttons ändern 
+    - Hauptmenü Buttons ändern          -> Chrissy
     - Schriftgröße abändern
     - Zurückpfeil bei ZurückButton      -> Chrissy  -> erledigt, aber noch nicht "schön"
     - Hintergrundbilder an verschiedene Auflösungen anpassen
-    - Changelog-Icon abrunden           -> Chrissy
-- Icon erstellen
+    - Changelog-Icon abrunden           -> Chrissy  -> erledigt
+- Icon erstellen    -> Chrissy
 - Casino und Unterseiten        -> Lucas
 - Rabatte und Unterseiten
 - Changelog         -> Chrissy  -> erledigt
