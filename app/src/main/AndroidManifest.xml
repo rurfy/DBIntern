@@ -7,10 +7,10 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/icon"
+        android:roundIcon="@drawable/icon_rounded"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity" android:theme="@style/FancyImage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

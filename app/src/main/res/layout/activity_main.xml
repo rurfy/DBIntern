@@ -25,7 +25,7 @@
         android:id="@+id/einloggen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="40dp"
         android:background="@color/colorDeutscheBahn"
         android:text="Einloggen"
@@ -40,58 +40,62 @@
         android:id="@+id/hilfe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="35dp"
         android:background="#868686"
         android:text="Hilfe"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/einloggen"
-        app:layout_constraintRight_toLeftOf="@+id/einloggen"
+        app:layout_constraintStart_toStartOf="@+id/passwort2"
         tools:layout_constraintRight_toRightOf="@+id/button" />
 
     <EditText
         android:id="@+id/passwort2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="30dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/einloggen"
-        app:layout_constraintRight_toRightOf="@+id/einloggen" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/benutzername2" />
 
     <EditText
         android:id="@+id/benutzername2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/passwort2"
-        app:layout_constraintRight_toRightOf="@+id/einloggen" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/benutzername" />
 
     <TextView
         android:id="@+id/benutzername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="16dp"
         android:text="Benutzername"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/benutzername2"
-        app:layout_constraintRight_toLeftOf="@+id/benutzername2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/passwort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="8dp"
         android:text="Passwort"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/passwort2"
-        app:layout_constraintRight_toLeftOf="@+id/passwort2" />
+        app:layout_constraintEnd_toEndOf="@+id/benutzername" />
 
 
 </android.support.constraint.ConstraintLayout>

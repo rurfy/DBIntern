@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#D30413</color>
+    <color name="colorPrimaryDark">#D30413</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorDeutscheBahn">#D30413</color>
     <color name="colorDeutscheBahnAlpha">#cdd30413</color>

@@ -84,7 +84,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@drawable/icon_rounded" />
 
     <TextView
         android:id="@+id/versionsnummer"
