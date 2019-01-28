@@ -12,8 +12,8 @@ ToDOs:
     - bei Textfeldern Ecken abrunden
     - Hintergrundbilder richtig positionieren und genau an Steffenshintergrund Bilder anpassen
 - Icon erstellen    -> Chrissy  -> war das nicht schon immer erledigt?
-- Casino und Unterseiten        -> Lucas
-- Rabatte und Unterseiten
+- Casino            -> Lucas    -> erledigt
+- Rabatte           -> Lucas    -> erledigt
 - Changelog         -> Chrissy  -> erledigt
 - (JSONParser)      -> Chrissy  -> erledigt (muss noch auf alle angewendet werden)
 - (Errorcatches)
@@ -21,3 +21,7 @@ ToDOs:
 - (xml-Rahmen Pattern erstellen)
 - XML-Dateien für Casino Informationen erstellen
 - XML-Dateien für Rabatt Informationen erstellen
+- Buttons auf Loginseite schmaler
+- Header schmaler
+- Unterseite Casino
+- Unterseite Rabatte
