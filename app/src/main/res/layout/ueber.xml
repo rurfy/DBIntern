@@ -9,13 +9,15 @@
         android:id="@+id/zurueck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:background="#00000000"
         android:text="Hauptmenü"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/titel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/titel" />
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/titel"
+        app:layout_constraintVertical_bias="0.416" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -195,5 +197,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/anmerkungenhg"
         app:layout_constraintRight_toRightOf="@+id/anmerkungenhg"
         app:layout_constraintTop_toTopOf="@+id/anmerkungenhg" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/titel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titel"
+        app:srcCompat="@drawable/baseline_chevron_left_white_48dp" />
 
 </android.support.constraint.ConstraintLayout>
