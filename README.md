@@ -13,7 +13,7 @@ ToDOs:
     - Hintergrundbilder richtig positionieren und genau an Steffenshintergrund Bilder anpassen
 - Icon erstellen    -> Chrissy  -> war das nicht schon immer erledigt?
 - Casino            -> Lucas    -> erledigt
-- Rabatte           
+- Rabatte           -> Chrissy           
 - Changelog         -> Chrissy  -> erledigt
 - (JSONParser)      -> Chrissy  -> erledigt (muss noch auf alle angewendet werden)
 - (Errorcatches)
@@ -25,3 +25,5 @@ ToDOs:
 - Header schmaler
 - Unterseite Casino
 - Unterseite Rabatte
+- Intent Casino     -> Chrissy  -> erledigt
+- Intent Rabatte
