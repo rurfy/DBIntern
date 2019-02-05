@@ -1,11 +1,8 @@
 package com.projects.pupus.dbintern;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -15,9 +12,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Rabatt extends AppCompatActivity {
-
-    private String TAG = Rabatt.class.getSimpleName();
+public class SelectedRabatt extends AppCompatActivity {
+    private String TAG = SelectedRabatt.class.getSimpleName();
     private ListView lvRabatt;
 
     ArrayList<HashMap<String, String>> ortList;
@@ -45,35 +41,26 @@ public class Rabatt extends AppCompatActivity {
                 finish();
             }
         });
-        lvRabatt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
-                String selectedItem = (String) lvRabatt.getItemAtPosition(position).toString();
-                selectedItem = selectedItem.replace("{Ort=", "");
-                selectedItem = selectedItem.substring(0, selectedItem.indexOf(","));
-                String selectedID = ortList.get(position).get(selectedItem);
+        Bundle extras = getIntent().getExtras();
+        String ortID = extras.getString("ortID");
 
-                Intent intent = new Intent(Rabatt.this, SelectedRabatt.class);
-                intent.putExtra("ortID", selectedID);
-                startActivity(intent);
-            }
-        });
-
-        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(Rabatt.this, TAG, ortList, new String[] {"Ort", "Ort_ID"}, new String[] {"Ort"},  "http://dbintern.appshost.net/api.php?pass=db&db=rabatte_ort") {
+        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(SelectedRabatt.this, TAG, ortList, new String[] {"ID", "Ort", "Ort_ID", "Name_Geschaeft", "Rabatt", "Legitimation", "Wo"}, new String[] {"Name","Rabatt","Legitimation","Wo"},  "http://dbintern.appshost.net/api.php?pass=db&db=rabatte&ort=" + ortID) {
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
-                ListAdapter adapter = new SimpleAdapter(Rabatt.this, ortList,
-                        R.layout.casrab_list_item, new String[]{"Ort"},
-                        new int[]{R.id.tvOrt});
+                ListAdapter adapter = new SimpleAdapter(SelectedRabatt.this, ortList,
+                        R.layout.rabatt_list_item, new String[]{"Name","Rabatt","Legitimation","Wo"},
+                        new int[]{R.id.tVName,R.id.tVRabatt,R.id.tVLegi,R.id.tVWo});
                 lvRabatt.setAdapter(adapter);
             }
 
             @Override
             protected void putAll(HashMap<String, String> map, String[] listTags, String[] content) {
-                map.put(listTags[0], content[0]);
-                map.put(content[0], content[1]);
+                map.put(listTags[0], content[3]);
+                map.put(listTags[1], content[4]);
+                map.put(listTags[2], content[5]);
+                map.put(listTags[3], content[6]);
             }
         };
         getContacts.execute();
