@@ -9,7 +9,7 @@ ToDOs:
     - Zurückpfeil bei ZurückButton      -> Chrissy  -> erledigt
     - Hintergrundbilder an verschiedene Auflösungen anpassen
     - Changelog-Icon abrunden           -> Chrissy  -> erledigt
-    - bei Textfeldern Ecken abrunden
+    - bei Textfeldern Ecken abrunden    -> Lucas
     - Hintergrundbilder richtig positionieren und genau an Steffens Hintergrundbilder anpassen -> Lucas -> erledigt
 - Icon erstellen    -> Chrissy  -> erledigt
 - Casino            -> Lucas    -> erledigt
@@ -19,7 +19,7 @@ ToDOs:
 - (Errorcatches)
 - Notchbalken rot   -> Chrissy  -> erledigt
 - (xml-Rahmen Pattern erstellen)        -> Lucas    -> erledigt
-- Rahmen Pattern anwenden   -> Lucas
+- Rahmen Pattern anwenden   -> Lucas    -> erledigt
 - XML-Dateien für Casino Informationen erstellen    -> Chrissy  -> erledigt
 - XML-Dateien für Rabatt Informationen erstellen    -> Chrissy  -> erledigt
 - Buttons auf Loginseite schmaler   -> Lucas
