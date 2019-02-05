@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Ueber extends AppCompatActivity {
 
@@ -14,6 +15,10 @@ public class Ueber extends AppCompatActivity {
         setContentView(R.layout.ueber);
 
         Button zurueck = (Button) findViewById(R.id.zurueck);
+        TextView title = (TextView) findViewById(R.id.titel);
+
+        zurueck.setText("Hauptmenü");
+        title.setText("Über diese App");
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override

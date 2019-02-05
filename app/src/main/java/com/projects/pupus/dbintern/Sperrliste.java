@@ -9,11 +9,13 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +35,12 @@ public class Sperrliste extends AppCompatActivity{
         ortList = new ArrayList<>();
         lvSperrliste = (ListView) findViewById(R.id.list);
 
+
+        TextView title = (TextView) findViewById(R.id.titel);
         Button zurueck = (Button) findViewById(R.id.zurueck);
+
+        title.setText("Sperrliste");
+        zurueck.setText("Hauptmenü");
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override
