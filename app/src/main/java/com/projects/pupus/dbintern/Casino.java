@@ -1,7 +1,10 @@
 package com.projects.pupus.dbintern;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -48,7 +51,14 @@ public class Casino extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
-                finish();
+                String selectedItem = (String) lvCasino.getItemAtPosition(position).toString();
+                selectedItem = selectedItem.replace("{Ort=", "");
+                selectedItem = selectedItem.substring(0, selectedItem.indexOf(","));
+                String selectedID = ortList.get(position).get(selectedItem);
+
+                Intent intent = new Intent(Casino.this, SelectedCasino.class);
+                intent.putExtra("ortID", selectedID);
+                startActivity(intent);
             }
         });
 
@@ -65,6 +75,7 @@ public class Casino extends AppCompatActivity {
             @Override
             protected void putAll(HashMap<String, String> map, String[] listTags, String[] content) {
                 map.put(listTags[0], content[0]);
+                map.put(content[0], content[1]);
             }
         };
         getContacts.execute();
