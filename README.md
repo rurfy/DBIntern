@@ -28,3 +28,4 @@ ToDOs:
 - Intent Casino     -> Chrissy  -> erledigt
 - Intent Rabatte    -> Chrissy  -> erledigt
 - ALLES NOCHMAL ÜBERPRÜFEN
+- Rabatte Bilder einfügen
