@@ -19,11 +19,12 @@ ToDOs:
 - (Errorcatches)
 - Notchbalken rot   -> Chrissy  -> erledigt
 - (xml-Rahmen Pattern erstellen)        -> Lucas
-- XML-Dateien für Casino Informationen erstellen    -> Chrissy
-- XML-Dateien für Rabatt Informationen erstellen    -> Chrissy
+- XML-Dateien für Casino Informationen erstellen    -> Chrissy  -> erledigt
+- XML-Dateien für Rabatt Informationen erstellen    -> Chrissy  -> erledigt
 - Buttons auf Loginseite schmaler
 - Header schmaler           -> Lucas -> erledigt
-- Unterseite Casino
-- Unterseite Rabatte    -> Chrissy
+- Unterseite Casino     -> Chrissy  -> erledigt
+- Unterseite Rabatte    -> Chrissy  -> erledigt
 - Intent Casino     -> Chrissy  -> erledigt
 - Intent Rabatte    -> Chrissy  -> erledigt
+- ALLES NOCHMAL ÜBERPRÜFEN
