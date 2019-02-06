@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
@@ -55,12 +56,6 @@ public class SelectedRabatt extends AppCompatActivity {
         new DownloadImageTask(image)
                 .execute("http://dbintern.appshost.net/bahnhofsfotos/" + ortID + ".jpg");
 
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int width = size.x;
-        int height = size.y;
-
 
         JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(SelectedRabatt.this, TAG, ortList, new String[] {"ID", "Ort", "Ort_ID", "Name_Geschaeft", "Rabatt", "Legitimation", "Wo"}, new String[] {"Name","Rabatt","Legitimation","Wo"},  "http://dbintern.appshost.net/api.php?pass=db&db=rabatte&ort=" + ortID) {
             @Override
@@ -94,6 +89,13 @@ public class SelectedRabatt extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+
+
+    }
+
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 
@@ -115,8 +117,12 @@ public class SelectedRabatt extends AppCompatActivity {
         }
 
         protected void onPostExecute(Bitmap result) {
-            bmImage.setMaxHeight(result.getHeight());
-            bmImage.setMaxWidth(result.getWidth());
+            Display display = getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            double width = size.x;
+
+            bmImage.getLayoutParams().height = ((int) ((double) result.getHeight()*(width/ (double) result.getWidth())));
             bmImage.setImageBitmap(result);
         }
     }
