@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -34,6 +35,10 @@ public class Changelog extends AppCompatActivity {
         lvChangelog = (ListView) findViewById(R.id.lvChangelog);
 
         Button zurueck = (Button) findViewById(R.id.zurueck);
+        TextView title = (TextView) findViewById(R.id.titel);
+
+        zurueck.setText("Back");
+        title.setText("Changelog");
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override

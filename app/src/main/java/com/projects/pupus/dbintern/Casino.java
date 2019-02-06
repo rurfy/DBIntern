@@ -31,13 +31,12 @@ public class Casino extends AppCompatActivity {
         ortList = new ArrayList<>();
         lvCasino = (ListView) findViewById(R.id.lvCasrab);
 
-        Bundle b = getIntent().getExtras();
-        String name = b.getString("titel");
 
         Button zurueck = (Button) findViewById(R.id.zurueck);
-        TextView titel = (TextView) findViewById(R.id.titel);
+        TextView title = (TextView) findViewById(R.id.titel);
 
-        titel.setText(name);
+        title.setText("Casinos");
+        zurueck.setText("Hauptmenü");
 
 
         zurueck.setOnClickListener(new View.OnClickListener() {

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Hauptmenue extends AppCompatActivity {
@@ -21,6 +23,10 @@ public class Hauptmenue extends AppCompatActivity {
         TextView planet = (TextView) findViewById(R.id.planet);
         final TextView ueber = (TextView) findViewById(R.id.ueber);
 
+        Button zurueck = (Button) findViewById(R.id.zurueck);
+        zurueck.setVisibility(View.GONE);
+
+
         sperrliste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,20 +37,14 @@ public class Hauptmenue extends AppCompatActivity {
         casinos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
-                b.putString("titel", getString(R.string.casinos));
                 Intent intent = new Intent (Hauptmenue.this, Casino.class);
-                intent.putExtras(b);
                 startActivity(intent);
             }
         });
         rabatte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
-                b.putString("titel", getString(R.string.rabatte));
                 Intent intent = new Intent (Hauptmenue.this, Rabatt.class);
-                intent.putExtras(b);
                 startActivity(intent);
             }
         });

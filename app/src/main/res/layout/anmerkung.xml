@@ -8,46 +8,26 @@
 
     <ImageView
         android:id="@+id/hintergrund"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/file" />
-
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/colorDeutscheBahn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/zurueck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00000000"
-        android:gravity="left|center_vertical"
-        android:text="Über diese App"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/header"
-        app:layout_constraintStart_toEndOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/anmerkunghg"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="192dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorDeutscheBahnAlpha"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/copyrighthg"
@@ -109,13 +89,8 @@
         app:layout_constraintRight_toRightOf="@+id/copyrighthg"
         app:layout_constraintTop_toTopOf="@+id/copyrighthg" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/zurueck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/zurueck"
-        app:srcCompat="@drawable/baseline_chevron_left_white_48dp" />
+    <include
+        android:id="@+id/rahmen"
+        layout="@layout/rahmen" />
 
 </android.support.constraint.ConstraintLayout>
