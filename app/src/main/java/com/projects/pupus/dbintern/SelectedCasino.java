@@ -15,6 +15,7 @@ import java.util.HashMap;
 public class SelectedCasino extends AppCompatActivity {
     private String TAG = SelectedCasino.class.getSimpleName();
     private ListView lvCas;
+    private TextView title;
 
     ArrayList<HashMap<String, String>> ortList;
 
@@ -27,7 +28,7 @@ public class SelectedCasino extends AppCompatActivity {
         lvCas = (ListView) findViewById(R.id.lvCasrab);
 
         Button zurueck = (Button) findViewById(R.id.zurueck);
-        final TextView title = (TextView) findViewById(R.id.titel);
+        title = (TextView) findViewById(R.id.titel);
 
         zurueck.setText("Casinos");
 
@@ -52,8 +53,16 @@ public class SelectedCasino extends AppCompatActivity {
             }
 
             @Override
-            protected void putAll(HashMap<String, String> map, String[] listTags, String[] content) {
-                title.setText(content[1]);
+            protected void putAll(HashMap<String, String> map, String[] listTags, final String[] content) {
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        title.setText(content[1]);
+                        // Stuff that updates the UI
+
+                    }
+                });
                 map.put(listTags[0], content[3]);
                 map.put(listTags[1], content[4]);
                 map.put(listTags[2], content[5]);
