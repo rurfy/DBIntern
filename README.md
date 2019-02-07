@@ -6,5 +6,5 @@ ToDOs:
 - ALLES NOCHMAL ÜBERPRÜFEN
 - Generell aufräumen        -> Chrissy
 - Android Device ID übergeben -> Chrissy
-- Hilfe Button Rot
-- Alle Streams schließen
+- Hilfe Button Rot  -> Lucas
+- Alle Streams schließen  -> Lucas
