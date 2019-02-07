@@ -3,8 +3,11 @@ package com.projects.pupus.dbintern;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
                 if(benutzer.getText().toString().equals("db") && passwort.getText().toString().equals("exklusiv")){
                     Intent intent = new Intent(MainActivity.this, Hauptmenue.class);
                     startActivity(intent);
+                    DeviceID deviceID = new DeviceID();
+                    deviceID.execute();
                 } else {
                     AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                     alertDialog.setTitle("Login fehlgeschlagen!");
@@ -56,5 +61,17 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+    }
+
+    private class DeviceID extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String android_id = Settings.Secure.getString(MainActivity.this.getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+            HttpHandler handler = new HttpHandler();
+            handler.makeServiceCall("http://dbintern.appshost.net/api.php?pass=db&db=rabatte&AndroidID=(" + android_id + ")");
+            return null;
+        }
     }
 }
