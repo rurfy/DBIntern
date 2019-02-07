@@ -7,4 +7,4 @@ ToDOs:
 - Generell aufräumen        -> Chrissy
 - Android Device ID übergeben -> Chrissy
 - Hilfe Button Rot
-- 
+- Alle Streams schließen
