@@ -9,5 +9,5 @@ ToDOs:
 - Hilfe Button Rot  -> Lucas
 - Alle Streams schließen  -> Lucas
 - Langbeschreibung auf Rechtschreibung überprüfen -> Chrissy  -> erledigt
-- Case Sensitivity beim Login aufheben
+- Case Sensitivity beim Login aufheben  -> Chrissy  -> erledigt
 - Über Seite TextView-Überlappung aufheben
