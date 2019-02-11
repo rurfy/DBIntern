@@ -10,3 +10,4 @@ ToDOs:
 - Alle Streams schließen  -> Lucas
 - Langbeschreibung auf Rechtschreibung überprüfen -> Chrissy  -> erledigt
 - Case Sensitivity beim Login aufheben
+- Über Seite TextView-Überlappung aufheben
