@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(benutzer.getText().toString().equals("db") && passwort.getText().toString().equals("exklusiv")){
+                if(benutzer.getText().toString().equalsIgnoreCase("db") && passwort.getText().toString().equals("exklusiv")){
                     Intent intent = new Intent(MainActivity.this, Hauptmenue.class);
                     startActivity(intent);
                     DeviceID deviceID = new DeviceID();
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                     alertDialog.setTitle("Login fehlgeschlagen!");
                     alertDialog.setMessage("Benutzername und/oder Passwort sind falsch.");
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ok.",
+                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Ok.",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
