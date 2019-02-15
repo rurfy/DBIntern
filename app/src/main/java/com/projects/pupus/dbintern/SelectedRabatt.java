@@ -109,6 +109,7 @@ public class SelectedRabatt extends AppCompatActivity {
             try {
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIcon11 = BitmapFactory.decodeStream(in);
+                in.close();
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
                 e.printStackTrace();
