@@ -11,3 +11,9 @@ ToDOs:
 - Langbeschreibung auf Rechtschreibung überprüfen -> Chrissy  -> erledigt
 - Case Sensitivity beim Login aufheben  -> Chrissy  -> erledigt
 - Über Seite TextView-Überlappung aufheben
+
+
+Vorschläge:
+- Zoomen können (Text größer machen)
+- bestimmte Anzeigen vorlesen lassen, wenn man darauf drückt
+- Essensplan einfügen (wie bei DB Gastro)
