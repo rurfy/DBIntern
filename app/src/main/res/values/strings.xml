@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">DBIntern</string>
     <string name="casinos">Casinos</string>
+    <string name="hauptmenue">Hauptmenü</string>
     <string name="rabatte">Rabatte</string>
+    <string name="sperrliste">Sperrliste</string>
+    <string name="changelog">Changelog</string>
+    <string name="ueberdieapp">Über diese App</string>
+    <string name="ueber">Über</string>
 </resources>

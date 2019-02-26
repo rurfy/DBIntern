@@ -1,21 +1,13 @@
 package com.projects.pupus.dbintern;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,14 +25,14 @@ public class Sperrliste extends AppCompatActivity{
         setContentView(R.layout.sperrliste);
 
         ortList = new ArrayList<>();
-        lvSperrliste = (ListView) findViewById(R.id.list);
+        lvSperrliste = findViewById(R.id.list);
 
 
-        TextView title = (TextView) findViewById(R.id.titel);
-        Button zurueck = (Button) findViewById(R.id.zurueck);
+        TextView title = findViewById(R.id.titel);
+        Button zurueck = findViewById(R.id.zurueck);
 
-        title.setText("Sperrliste");
-        zurueck.setText("Hauptmenü");
+        title.setText(R.string.sperrliste);
+        zurueck.setText(R.string.hauptmenue);
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +41,7 @@ public class Sperrliste extends AppCompatActivity{
             }
         });
 
-        JSONParser getContacts = new JSONParser(Sperrliste.this, TAG, ortList, new String[]{"ID", "Typ", "Nummer", "Von", "Bis", "Gueltig"}, new String[]{"Zug", "Strecke", "Tage"}, "http://dbintern.appshost.net/api.php?pass=db&db=sperrliste") {
+        JSONParser getContacts = new JSONParser(TAG, ortList, new String[]{"ID", "Typ", "Nummer", "Von", "Bis", "Gueltig"}, new String[]{"Zug", "Strecke", "Tage"}, "http://dbintern.appshost.net/api.php?pass=db&db=sperrliste") {
             @Override
             protected void onPostExecute(Void Result) {
                 super.onPostExecute(Result);

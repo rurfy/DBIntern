@@ -1,20 +1,13 @@
 package com.projects.pupus.dbintern;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,13 +25,13 @@ public class Changelog extends AppCompatActivity {
         setContentView(R.layout.version);
 
         ortList = new ArrayList<>();
-        lvChangelog = (ListView) findViewById(R.id.lvChangelog);
+        lvChangelog = findViewById(R.id.lvChangelog);
 
-        Button zurueck = (Button) findViewById(R.id.zurueck);
-        TextView title = (TextView) findViewById(R.id.titel);
+        Button zurueck = findViewById(R.id.zurueck);
+        TextView title = findViewById(R.id.titel);
 
-        zurueck.setText("Back");
-        title.setText("Changelog");
+        zurueck.setText(R.string.ueberdieapp);
+        title.setText(R.string.changelog);
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +40,7 @@ public class Changelog extends AppCompatActivity {
             }
         });
 
-        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(Changelog.this, TAG, ortList, new String[] {"Version", "ChangeText"}, new String[] {"Version", "Text"},  "http://dbintern.appshost.net/api.php?pass=db&db=Changelog") {
+        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(TAG, ortList, new String[] {"Version", "ChangeText"}, new String[] {"Version", "Text"},  "http://dbintern.appshost.net/api.php?pass=db&db=Changelog") {
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);

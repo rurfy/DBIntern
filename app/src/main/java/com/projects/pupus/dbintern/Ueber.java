@@ -14,11 +14,11 @@ public class Ueber extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ueber);
 
-        Button zurueck = (Button) findViewById(R.id.zurueck);
-        TextView title = (TextView) findViewById(R.id.titel);
+        Button zurueck = findViewById(R.id.zurueck);
+        TextView title = findViewById(R.id.titel);
 
-        zurueck.setText("Hauptmenü");
-        title.setText("Über diese App");
+        zurueck.setText(R.string.hauptmenue);
+        title.setText(R.string.ueber);
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,8 +27,8 @@ public class Ueber extends AppCompatActivity {
             }
         });
 
-        Button anmerkung = (Button) findViewById(R.id.anmerkungbutton);
-        Button version = (Button) findViewById(R.id.versionenbutton);
+        Button anmerkung = findViewById(R.id.anmerkungbutton);
+        Button version = findViewById(R.id.versionenbutton);
 
         anmerkung.setOnClickListener(new View.OnClickListener() {
             @Override

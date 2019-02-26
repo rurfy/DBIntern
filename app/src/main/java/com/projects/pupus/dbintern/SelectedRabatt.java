@@ -36,11 +36,11 @@ public class SelectedRabatt extends AppCompatActivity {
 
 
         ortList = new ArrayList<>();
-        lvRabatt = (ListView) findViewById(R.id.lvSelRab);
+        lvRabatt = findViewById(R.id.lvSelRab);
 
-        Button zurueck = (Button) findViewById(R.id.zurueck);
-        title = (TextView) findViewById(R.id.titel);
-        zurueck.setText("Rabatte");
+        Button zurueck = findViewById(R.id.zurueck);
+        title = findViewById(R.id.titel);
+        zurueck.setText(R.string.rabatte);
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,16 +48,22 @@ public class SelectedRabatt extends AppCompatActivity {
                 finish();
             }
         });
-        image = (ImageView) findViewById(R.id.bahnhofImage);
+        image = findViewById(R.id.bahnhofImage);
 
         Bundle extras = getIntent().getExtras();
-        String ortID = extras.getString("ortID");
+        String ortID = "";
+        try {
+            ortID = extras.getString("ortID");
+        }
+        catch (NullPointerException e) {
+            Log.e(TAG, "NullPointerException: " + e.getMessage());
+        }
 
         new DownloadImageTask(image)
                 .execute("http://dbintern.appshost.net/bahnhofsfotos/" + ortID + ".jpg");
 
 
-        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(SelectedRabatt.this, TAG, ortList, new String[] {"ID", "Ort", "Ort_ID", "Name_Geschaeft", "Rabatt", "Legitimation", "Wo"}, new String[] {"Name","Rabatt","Legitimation","Wo"},  "http://dbintern.appshost.net/api.php?pass=db&db=rabatte&ort=" + ortID) {
+        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(TAG, ortList, new String[] {"ID", "Ort", "Ort_ID", "Name_Geschaeft", "Rabatt", "Legitimation", "Wo"}, new String[] {"Name","Rabatt","Legitimation","Wo"},  "http://dbintern.appshost.net/api.php?pass=db&db=rabatte&ort=" + ortID) {
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
@@ -99,7 +105,7 @@ public class SelectedRabatt extends AppCompatActivity {
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 
-        public DownloadImageTask(ImageView bmImage) {
+        DownloadImageTask(ImageView bmImage) {
             this.bmImage = bmImage;
         }
 

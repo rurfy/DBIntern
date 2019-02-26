@@ -13,10 +13,10 @@ public class Anmerkung extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.anmerkung);
 
-        Button zurueck = (Button) findViewById(R.id.zurueck);
-        TextView title = (TextView) findViewById(R.id.titel);
+        Button zurueck = findViewById(R.id.zurueck);
+        TextView title = findViewById(R.id.titel);
 
-        zurueck.setText("Über diese App");
+        zurueck.setText(R.string.ueberdieapp);
         title.setText("");
 
         zurueck.setOnClickListener(new View.OnClickListener() {

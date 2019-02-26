@@ -8,7 +8,6 @@ import android.provider.Settings;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText benutzer =(EditText) findViewById(R.id.benutzername2);
-        final EditText passwort = (EditText) findViewById(R.id.passwort2);
-        Button login = (Button) findViewById(R.id.einloggen);
+        final EditText benutzer = findViewById(R.id.benutzername2);
+        final EditText passwort = findViewById(R.id.passwort2);
+        Button login = findViewById(R.id.einloggen);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                     DeviceID deviceID = new DeviceID();
                     deviceID.execute();
                 } else {
-                    AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                    final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                     alertDialog.setTitle("Login fehlgeschlagen!");
                     alertDialog.setMessage("Benutzername und/oder Passwort sind falsch.");
                     alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Ok.",
@@ -41,12 +40,18 @@ public class MainActivity extends AppCompatActivity {
                                     dialog.dismiss();
                                 }
                             });
+                    alertDialog.setOnShowListener( new DialogInterface.OnShowListener() {
+                        @Override
+                        public void onShow(DialogInterface arg0) {
+                            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ResourcesCompat.getColor(getResources(), R.color.colorDeutscheBahn, null));
+                        }
+                    });
                     alertDialog.show();
                 }
             }
         });
 
-        Button hilfe = (Button) findViewById(R.id.hilfe);
+        Button hilfe = findViewById(R.id.hilfe);
         hilfe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

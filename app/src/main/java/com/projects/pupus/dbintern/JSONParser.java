@@ -1,9 +1,7 @@
 package com.projects.pupus.dbintern;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,17 +12,16 @@ import java.util.HashMap;
 
 public class JSONParser extends AsyncTask<Void, Void, Void> {
 
-    private Context context;
     private String TAG;
-    private ArrayList<HashMap<String, String>> ortList;
+    private ArrayList<HashMap<String, String>> objectList;
     private String[] tags;
     private String[] tagList;
     private String url;
 
-    public JSONParser(Context context, String TAG, ArrayList<HashMap<String, String>> ortList, String[] namesOnWebsite, String[] tagsOnList, String url) {
-        this.context = context;
+    JSONParser(String TAG, ArrayList<HashMap<String, String>> objectList, String[] namesOnWebsite, String[] tagsOnList, String url) {
+
         this.TAG = TAG;
-        this.ortList = ortList;
+        this.objectList = objectList;
         this.tags = namesOnWebsite;
         this.tagList = tagsOnList;
         this.url = url;
@@ -33,6 +30,7 @@ public class JSONParser extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        Log.e(TAG, "Extracting JSON Data");
 
     }
 
@@ -43,16 +41,15 @@ public class JSONParser extends AsyncTask<Void, Void, Void> {
         String jsonStr = sh.makeServiceCall(url);
 
         Log.e(TAG, "Response from url: " + jsonStr);
-        //Log.e(TAG, jsonStr);
         if (jsonStr != null) {
             try {
                 // JSONArray is created
-                JSONArray jsonOrte = new JSONArray(jsonStr);
+                JSONArray jsonObjects = new JSONArray(jsonStr);
 
                 String[] content = new String[tags.length];
                 // looping through all values
-                for (int i = 0; i < jsonOrte.length(); i++) {
-                    JSONObject c = jsonOrte.getJSONObject(i);
+                for (int i = 0; i < jsonObjects.length(); i++) {
+                    JSONObject c = jsonObjects.getJSONObject(i);
                     for (int j = 0; j < tags.length; j++) {
                         content[j] = c.getString(tags[j]);
                     }
@@ -64,7 +61,7 @@ public class JSONParser extends AsyncTask<Void, Void, Void> {
                     putAll(ort, tagList, content);
 
                     // adding object to arrayList
-                    ortList.add(ort);
+                    objectList.add(ort);
                 }
             } catch (final JSONException e) {
                 Log.e(TAG, "Json parsing error: " + e.getMessage());

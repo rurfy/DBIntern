@@ -1,10 +1,8 @@
 package com.projects.pupus.dbintern;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -29,14 +27,14 @@ public class Casino extends AppCompatActivity {
         setContentView(R.layout.casrab);
 
         ortList = new ArrayList<>();
-        lvCasino = (ListView) findViewById(R.id.lvCasrab);
+        lvCasino = findViewById(R.id.lvCasrab);
 
 
-        Button zurueck = (Button) findViewById(R.id.zurueck);
-        TextView title = (TextView) findViewById(R.id.titel);
+        Button zurueck = findViewById(R.id.zurueck);
+        TextView title = findViewById(R.id.titel);
 
-        title.setText("Casinos");
-        zurueck.setText("Hauptmenü");
+        title.setText(R.string.casinos);
+        zurueck.setText(R.string.hauptmenue);
 
 
         zurueck.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +48,7 @@ public class Casino extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
-                String selectedItem = (String) lvCasino.getItemAtPosition(position).toString();
+                String selectedItem = lvCasino.getItemAtPosition(position).toString();
                 selectedItem = selectedItem.replace("{Ort=", "");
                 selectedItem = selectedItem.substring(0, selectedItem.indexOf(","));
                 String selectedID = ortList.get(position).get(selectedItem);
@@ -61,7 +59,7 @@ public class Casino extends AppCompatActivity {
             }
         });
 
-        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(Casino.this, TAG, ortList, new String[] {"Ort", "Ort_ID"}, new String[] {"Ort"},  "http://dbintern.appshost.net/api.php?pass=db&db=casino_ort") {
+        JSONParser getContacts = new JSONParser(TAG, ortList, new String[] {"Ort", "Ort_ID"}, new String[] {"Ort"},  "http://dbintern.appshost.net/api.php?pass=db&db=casino_ort") {
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);

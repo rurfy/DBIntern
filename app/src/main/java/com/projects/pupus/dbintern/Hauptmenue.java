@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,14 +15,14 @@ public class Hauptmenue extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hauptmenue);
 
-        TextView sperrliste = (TextView) findViewById(R.id.entwicklerhg);
-        TextView casinos = (TextView) findViewById(R.id.kontakthg);
-        TextView rabatte = (TextView) findViewById(R.id.versionhg);
-        TextView reisemarkt = (TextView) findViewById(R.id.anmerkungenhg);
-        TextView planet = (TextView) findViewById(R.id.planet);
-        final TextView ueber = (TextView) findViewById(R.id.ueber);
+        TextView sperrliste = findViewById(R.id.entwicklerhg);
+        TextView casinos = findViewById(R.id.kontakthg);
+        TextView rabatte = findViewById(R.id.versionhg);
+        TextView reisemarkt = findViewById(R.id.anmerkungenhg);
+        TextView planet = findViewById(R.id.planet);
+        final TextView ueber = findViewById(R.id.ueber);
 
-        Button zurueck = (Button) findViewById(R.id.zurueck);
+        Button zurueck = findViewById(R.id.zurueck);
         zurueck.setVisibility(View.GONE);
 
 

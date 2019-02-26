@@ -1,25 +1,27 @@
 package com.projects.pupus.dbintern;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class HttpHandler {
+class HttpHandler {
 
     private static final String TAG = HttpHandler.class.getSimpleName();
 
-    public HttpHandler() {
+    HttpHandler() {
     }
 
-    public String makeServiceCall(String reqUrl) {
+    String makeServiceCall(String reqUrl) {
         String response = null;
         try {
             URL url = new URL(reqUrl);

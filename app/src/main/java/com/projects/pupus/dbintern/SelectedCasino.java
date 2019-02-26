@@ -2,6 +2,7 @@ package com.projects.pupus.dbintern;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -25,12 +26,12 @@ public class SelectedCasino extends AppCompatActivity {
         setContentView(R.layout.casrab);
 
         ortList = new ArrayList<>();
-        lvCas = (ListView) findViewById(R.id.lvCasrab);
+        lvCas = findViewById(R.id.lvCasrab);
 
-        Button zurueck = (Button) findViewById(R.id.zurueck);
-        title = (TextView) findViewById(R.id.titel);
+        Button zurueck = findViewById(R.id.zurueck);
+        title = findViewById(R.id.titel);
 
-        zurueck.setText("Casinos");
+        zurueck.setText(R.string.casinos);
 
         zurueck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,9 +41,15 @@ public class SelectedCasino extends AppCompatActivity {
         });
 
         Bundle extras = getIntent().getExtras();
-        String ortID = extras.getString("ortID");
+        String ortID = "";
+        try {
+            ortID = extras.getString("ortID");
+        }
+        catch (NullPointerException e) {
+            Log.e(TAG, "NullPointerException: " + e.getMessage());
+        }
 
-        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(SelectedCasino.this, TAG, ortList, new String[] {"ID", "Ort", "Ort_ID", "Name", "Adresse","Telefon","EMail","OZ_Mo", "OZ_Di", "OZ_Mi", "OZ_Do","OZ_Fr", "OZ_Sa", "OZ_So"}, new String[] {"Name","Adresse","Telefon","EMail","OZ_Mo", "OZ_Di", "OZ_Mi", "OZ_Do","OZ_Fr", "OZ_Sa", "OZ_So"},  "http://dbintern.appshost.net/api.php?pass=db&db=casino&ort=" + ortID) {
+        JSONParser getContacts = new com.projects.pupus.dbintern.JSONParser(TAG, ortList, new String[] {"ID", "Ort", "Ort_ID", "Name", "Adresse","Telefon","EMail","OZ_Mo", "OZ_Di", "OZ_Mi", "OZ_Do","OZ_Fr", "OZ_Sa", "OZ_So"}, new String[] {"Name","Adresse","Telefon","EMail","OZ_Mo", "OZ_Di", "OZ_Mi", "OZ_Do","OZ_Fr", "OZ_Sa", "OZ_So"},  "http://dbintern.appshost.net/api.php?pass=db&db=casino&ort=" + ortID) {
             @Override
             protected void onPostExecute(Void result) {
                 super.onPostExecute(result);
