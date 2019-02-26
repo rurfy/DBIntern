@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.provider.Settings;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,15 +50,21 @@ public class MainActivity extends AppCompatActivity {
         hilfe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog.setTitle("Hilfe");
                 alertDialog.setMessage("Zum Login nutzen Sie bitte die selben Benutzderdaten, die Sie auch im Reisemarkt oder im Auslastungsradar nutzen.");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Ok.",
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL,"Ok.",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
                             }
                         });
+                alertDialog.setOnShowListener( new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface arg0) {
+                        alertDialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(ResourcesCompat.getColor(getResources(), R.color.colorDeutscheBahn, null));
+                    }
+                });
                 alertDialog.show();
             }
         });
